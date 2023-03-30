@@ -31,7 +31,7 @@ pool.query(`INSERT INTO moncard (mon_name, mon_image, dexcrip) VALUES
     ('Deva', 'https://www.dndbeyond.com/avatars/thumbnails/30761/784/1000/1000/638061093601900776.png', 'Devas are angels that act as divine messengers or agents to the Material Plane, the Shadowfell, and the Feywild and that can assume a form appropriate to the realm they are sent to. A deva can take any shape, although it prefers to appear to mortals as an innocuous humanoid or animal. When circumstances require that it cast off its guise, a deva is a beautiful humanoid-like creature with silvery skin. Its hair and eyes gleam with an unearthly luster, and large feathery wings unfurl from its shoulder blades.'),
     ('Planetar', 'https://www.dndbeyond.com/avatars/thumbnails/30761/799/1000/1000/638061094132481081.png', 'Planetars are muscular and hairless and have opalescent green skin and white-feathered wings. They tower over most humanoids, brandishing immense swords with grace.'),
     ('Solar', 'https://www.dndbeyond.com/avatars/thumbnails/30761/809/1000/1000/638061094428241214.png', 'The Solar resembles a towering, powerfully built human with brilliant topaz eyes, silvery (or golden) skin, and gleaming white wings.')
-    ON CONFFLICT (id) DO NOTHING`)
+    ON CONFLICT (id) DO NOTHING`)
 .then((data) => {
     console.log('Seed Data', data);
 })

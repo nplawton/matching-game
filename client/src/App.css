@@ -1,6 +1,22 @@
-.cardContainer{
-  align-items: center;
-  padding: auto;
+.App{
+  display: grid;
+  place-items: center;
+}
+
+.gameboard{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.card{
+  display: grid;
+  place-items: center;
+  width: 150px;
+  height: 150px;
+}
+
+.side{
+  border: 2px solid red;
 }
 
 #frontImage{
@@ -8,7 +24,13 @@
   width: 150px;
 }
 
+#cardBack{
+  align-items: center;
+}
+
 #backImage{
+  margin-left: auto;
+  margin-right: auto;
   height: 100px;
   width: 100px;
 }

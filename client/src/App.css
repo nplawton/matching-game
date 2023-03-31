@@ -1,0 +1,18 @@
+.cardContainer{
+  align-items: center;
+  padding: auto;
+}
+
+#frontImage{
+  height: 100px;
+  width: 150px;
+}
+
+#backImage{
+  height: 100px;
+  width: 100px;
+}
+
+#cardText{
+  font-size: 12px;
+}

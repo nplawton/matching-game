@@ -1,17 +1,16 @@
 import React from "react";
-import "../App.css"
+import "../App.css";
 
 const emblem = '../image/DnD-Emblem.png';
 
-const Card = ({card}) =>{
-//    console.table(card.mon_img);
-
-    function handleCardClick (){
-        console.log('click');
-    }
+const Card = ({card, handleCardClick}) => {
 
     return (
-        <button className="card" onClick={handleCardClick}>
+        <button 
+            className="card" 
+            onClick={handleCardClick}
+            data-id={card.id}
+        >
             <div className="side cardFront">
                 <img id="frontImage" src='https://logos-world.net/wp-content/uploads/2021/12/DnD-Emblem.png' alt={emblem} />
             </div>

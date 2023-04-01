@@ -10,8 +10,8 @@ pool.query(`DROP TABLE IF EXISTS moncard`)
             mon_name VARCHAR(200) NOT NULL,
             mon_img text,
             descrip text,
-            matchFound BOOLEAN NOT NULL,
-            flipped BOOLEAN NOT NULL           
+            matchFound BOOLEAN,
+            flipped BOOLEAN         
         )`);
     })
 .then((data) => {

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 
-import Gameboard from './components/Gameboard.js';
+import Gameboard from './components/Gameboard';
+import GameHandlers from './components/GameHandlers';
 
 function App(){
 
@@ -42,21 +43,18 @@ function App(){
   //   resetCards()
   // }, [])
 
-  function handleNewGameClick(){
-    resetTurn();
-    setMoves(0);
-    setScore(0);
-    resetCards();
-  }
-
   return (
     <div className="App">
-      <button 
-        onClick={() => handleNewGameClick() }
-      >
-        New Game
-      </button>
+      <GameHandlers 
+        moves={moves}
+        score={score}
+        resetTurn={resetTurn}
+        setMoves={setMoves}
+        setScore={setScore}
+        resetCards={resetCards}
+      />
       <Gameboard 
+        id="gameboard"
         firstSelection={firstSelection}
         setFirstSelection={setFirstSelection}
         secondSelection={secondSelection}
@@ -68,8 +66,6 @@ function App(){
         setDisabled={setDisabled}
         resetTurn={resetTurn}
       />
-      <p>Total Moves: {moves}</p>
-      <p>Total Score: {score}</p>
     </div>
   )
 }

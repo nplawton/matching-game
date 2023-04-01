@@ -3,44 +3,86 @@ import React, { useState, useEffect, useCallback } from 'react';
 import "../App.css";
 import Card from './Card';
 
-const Gameboard = ({ backendData, firstSelection, setFirstSelection, secondSelection, setSecondSelection, Cards, setCards }) => {
-
-    const resetCards = useCallback(() => {
-        const shuffled = [...backendData, ...backendData]
-          .sort(() => Math.random() - .5)
-        setCards(shuffled)
-        //console.log('Card Shuffler', shuffled);
-      });
+const Gameboard = ({ backendData, firstSelection, setFirstSelection, 
+        secondSelection, setSecondSelection, Cards, setCards,
+        setScore, disabled, setDisabled, resetTurn, resetCards }) => {
     
-      useEffect(() => {
+    
+    useEffect(() => {
         resetCards()
-      }, [backendData]);
+    }, [backendData]);
     
-      function handleCardClick (e){
-        
-        firstSelection
-          ? setSecondSelection(e.target.dataset.id)
-          : setFirstSelection(e.target.dataset.id);
+    function handleCardClick (e){
+
+        if(firstSelection){
+            setSecondSelection(e.target.dataset.id);
+            //console.log(secondSelection, 'Second');
+        }else{
+            setFirstSelection(e.target.dataset.id)
+            //console.log(firstSelection, 'first');
+        } 
         //console.log(e.target.dataset.id);
-      }
+    }
+
+    /*
+        1. If no 2nd, then fail hard
+        2. If both are present: 
+            -Then disable all cards
+            -Then check if they're the same ID
+                -increment score
+                -check if game complete
+            -Handle Same
+            -Handle Different
+        3. Clear Selections
+    */
+
     
-      function evaluateSelection() {
-        console.log(`FirstSelection: ${firstSelection}`);
-        console.log(`SecondSelection: ${secondSelection}`);
-      }
+    useEffect (() => {
+
+        if(!secondSelection){
+            return;
+        }
+
+        setDisabled(true);
+
+        if(firstSelection === secondSelection){
+            
+            setCards(prev => {
+                return prev.map(card => {
+                    if(Cards.id === firstSelection){
+                        return {...Cards, matchfound: true}
+                    }else{
+                        return Cards;
+                    }
+                })
+            })
+
+
+            setScore(prev => prev++);
+            
+            resetTurn();
+            
+        }else{
+            
+            setTimeout(() => resetTurn(), 1000)
+
+        }
+
+    }, [firstSelection, secondSelection])
     
     
     return (
         <div className='gameboard'>
         {
           Cards && (
-            Cards.map((card, index) => (
+            Object.values(Cards).map((card, index) =>
               <Card 
                 key={index} 
-                card={card} 
+                card={card}
+                disabled={disabled}
                 handleCardClick={handleCardClick}
               />
-            ))
+            )
           )
         }
       </div>

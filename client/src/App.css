@@ -43,11 +43,11 @@
   position: absolute;
 }
 
-:is(.card.matched, .card.flipped, :focus) .cardBack {
+:is(.card.matched, .card.flipped, :focus) #cardBack {
   transform: rotateY(0deg);
 }
 
-:is(.card.matched, .card.flipped, :focus) .cardFront {
+:is(.card.matched, .card.flipped, :focus) #cardFront {
   transform: rotateY(90deg);
 }
 

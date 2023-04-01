@@ -1,27 +1,18 @@
-import React, { useState, useEffect, useCallback } from 'react';
-
+import React, { useState, useEffect, useCallback } from "react";
 import "../App.css";
+
 import Card from './Card';
 
-const Gameboard = ({ backendData, firstSelection, setFirstSelection, 
-        secondSelection, setSecondSelection, Cards, setCards,
-        setScore, disabled, setDisabled, resetTurn, resetCards }) => {
-    
-    
-    useEffect(() => {
-        resetCards()
-    }, [backendData]);
-    
-    function handleCardClick (e){
 
-        if(firstSelection){
-            setSecondSelection(e.target.dataset.id);
-            //console.log(secondSelection, 'Second');
-        }else{
-            setFirstSelection(e.target.dataset.id)
-            //console.log(firstSelection, 'first');
-        } 
-        //console.log(e.target.dataset.id);
+const Gameboard = ({ firstSelection, setFirstSelection, 
+    secondSelection, setSecondSelection, cards, setCards,
+    setScore, disabled, setDisabled, resetTurn }) => {
+
+    function handleCardClick(e){
+        firstSelection
+            ? setSecondSelection(e.target.dataset.id)
+            : setFirstSelection(e.target.dataset.id);
+        // to do: handle duplicated single card click
     }
 
     /*
@@ -36,57 +27,43 @@ const Gameboard = ({ backendData, firstSelection, setFirstSelection,
         3. Clear Selections
     */
 
-    
-    useEffect (() => {
-
-        if(!secondSelection){
-            return;
-        }
-
-        setDisabled(true);
-
+    useEffect(() => {
+        if(!secondSelection){return}
+        setDisabled(true)
         if(firstSelection === secondSelection){
-            
             setCards(prev => {
-                return prev.map(card => {
-                    if(Cards.id === firstSelection){
-                        return {...Cards, matchfound: true}
-                    }else{
-                        return Cards;
-                    }
-                })
+            return prev.map(card => {
+                if(card.id === firstSelection){
+                return {...card, matchFound: true}
+                } else {
+                return card;
+                }
             })
-
-
-            setScore(prev => prev++);
-            
+            })
+            setScore(prev => prev + 1);
             resetTurn();
-            
-        }else{
-            
-            setTimeout(() => resetTurn(), 1000)
-
+        } else {
+            setTimeout(() => resetTurn(), 1000);
         }
-
     }, [firstSelection, secondSelection])
-    
-    
-    return (
-        <div className='gameboard'>
-        {
-          Cards && (
-            Object.values(Cards).map((card, index) =>
-              <Card 
-                key={index} 
-                card={card}
-                disabled={disabled}
-                handleCardClick={handleCardClick}
-              />
-            )
-          )
-        }
-      </div>
-    );
+
+    return(
+
+        <div className="gameboard">
+            {
+                cards && (
+                    Object.values(cards).map((card, index)=> 
+                        <Card
+                            key={index}
+                            card={card}
+                            disabled={disabled}
+                            handleCardClick={handleCardClick}
+                        />
+                    )
+                )
+            }
+        </div>
+    )
 };
 
 export default Gameboard;

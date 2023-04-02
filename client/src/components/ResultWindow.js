@@ -3,12 +3,18 @@ import axios from 'axios';
 import './search.css';
 
 
-const ResultWindow = ({ query }) => {
+const ResultWindow = ({ monNames, monImg, monDescrip, monId }) => {
 
+    
+    
     return(
-        <div id="resultWindow">
-            <h1>{query.mon_name}</h1>
-
+        <div 
+            key = {monId}
+            id="resultWindow"
+        
+        >
+            <h1>{monNames}</h1>
+            {/* {console.log(`Result Window name: ${monNames}`)} */}
         </div>
     )
 

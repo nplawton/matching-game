@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from "react";
-import axios from 'axios';
+import React from "react";
 import './search.css';
 
 
 
-const Search = ({ backendData, query, setQuery }) => {
+const Search = ({ backendData, query, setQuery, setMonImg, setMonDescrip, setMonNames, setMonId }) => {
 
     function onChange (e){
         setQuery(e.target.value);
     }
 
     function onSearch (searchTerm) {
-        console.log('search', searchTerm);
+        
         setQuery(searchTerm);
+        //console.log(searchTerm);
     }
 
     return(
@@ -56,3 +56,8 @@ const Search = ({ backendData, query, setQuery }) => {
 }
 
 export default Search;
+
+// setMonNames(searchTerm.mon_name);
+// setMonImg(searchTerm.mon_img);
+// setMonDescrip(searchTerm.descrip);
+// setMonId(searchTerm.id);

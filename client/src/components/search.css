@@ -2,6 +2,7 @@
     width: 280px;
     display: flex;
     flex-direction: column;
+    grid-row: 6;
 }
 
 .dropdown{
@@ -33,4 +34,8 @@ input{
 
 .search-inner{
     display: flex;
+}
+
+#resultWindow{
+    grid-row: 1;
 }

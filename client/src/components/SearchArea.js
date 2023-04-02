@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import axios from 'axios';
+import React from "react";
+
 import './search.css';
 
 import Search from "./Search";
@@ -7,20 +7,28 @@ import ResultWindow from "./ResultWindow";
 
 
 
-const SearchArea = ({ backendData, query, setQuery }) => {
+const SearchArea = ({ backendData, query, setQuery, monNames, monImg, monDescrip, 
+        monId, setMonNames, setMonImg, setMonDescrip, setMonId }) => {
 
-
+   
 
    
     return(
-        <div>
+        <div id="searchArea">
             <ResultWindow 
-                query={query}
+                monNames={monNames}
+                monImg={monImg}
+                monDescrip={monDescrip}
+                monId={monId} 
             />
             <Search 
                 backendData={backendData}
                 query={query}
-                setQuery={setQuery}     
+                setQuery={setQuery}
+                setMonNames={setMonNames}
+                setMonImg={setMonImg}
+                setMonDescrip={setMonDescrip}
+                setMonId={setMonId}     
             />
         </div>
         

@@ -1,5 +1,6 @@
 .App{
   display: grid;
+  grid-template-columns: repeat(12, 1fr);
   place-items: center;
   gap: 2rem;
 }

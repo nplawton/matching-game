@@ -14,7 +14,7 @@ const GameHandlers = ({ moves, score, resetTurn, setMoves, setScore, resetCards 
     }
 
     return (
-        <div id="gameHandlers">
+        <div id="gameHandler">
             <button
                 id="newGame" 
                 onClick={() => handleNewGameClick() }

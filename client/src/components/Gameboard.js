@@ -34,9 +34,9 @@ const Gameboard = ({ firstSelection, setFirstSelection,
             setCards(prev => {
             return prev.map(card => {
                 if(card.id === firstSelection){
-                return {...card, matchFound: true}
+                    return {...card, matchFound: true}
                 } else {
-                return card;
+                    return card;
                 }
             })
             })

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 
 import Gameboard from './components/Gameboard';
 import GameHandlers from './components/GameHandlers';
+import SearchArea from './components/SearchArea';
 
 function App(){
 
@@ -12,6 +13,7 @@ function App(){
   const [disabled, setDisabled] = useState(false);
   const [firstSelection, setFirstSelection] = useState(null);
   const [secondSelection, setSecondSelection] = useState(null);
+  const [query, setQuery] = useState('');
 
   useEffect(() => {
     fetch('https://react-mvp-1ll9.onrender.com/moncard').then(
@@ -65,6 +67,12 @@ function App(){
         disabled={disabled}
         setDisabled={setDisabled}
         resetTurn={resetTurn}
+      />
+      <SearchArea
+        id="searchArea" 
+        backendData={backendData}
+        setQuery={setQuery}
+        query={query} 
       />
     </div>
   )

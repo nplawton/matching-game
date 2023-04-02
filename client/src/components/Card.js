@@ -3,13 +3,18 @@ import "../App.css";
 
 const emblem = '../image/DnD-Emblem.png';
 
-const Card = ({card, disabled, handleCardClick}) => {
+const Card = ({ card, disabled, handleCardClick, flipped }) => {
+
+    const handleClick = () => {
+        handleCardClick(card);
+    }
+
 
     return (
         <button 
-            className={`card ${card.matchfound ? "matched" : ""}`}
+            className={`card ${card.matchFound ? "matched" : ""}`}
             disabled={disabled} 
-            onClick={handleCardClick}
+            onClick={handleClick}
             data-id={card.id}
         >
             <div className="side" id="cardFront">

@@ -31,6 +31,7 @@ function App(){
 
   //console.log(backendData)
 
+  //shuffle and duplicate cards
   const resetCards = useCallback(() => {
     const shuffled = [...backendData, ...backendData]
         .sort(() => Math.random() - .5)
@@ -38,10 +39,11 @@ function App(){
     //console.log('Card Shuffler', shuffled);
   }, [backendData]);
 
+  //Reset the cards during each turn
   function resetTurn(){
     setFirstSelection(null);
     setSecondSelection(null);
-    setMoves(m => m+ 1);
+    setMoves(m => m + 1);
     setDisabled(false);
   }
 

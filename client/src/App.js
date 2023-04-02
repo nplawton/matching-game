@@ -20,24 +20,44 @@ function App(){
   const [monId, setMonId] = useState('');
 
   useEffect(() => {
-    fetch('https://react-mvp-1ll9.onrender.com/moncard').then(
-      response => response.json()
-    ).then(
-      data =>{
-        setBackendData(data);
-      }
-    )
+    getData();
   }, [])
 
+  const getData = async () => {
+    const response = await fetch('https://react-mvp-1ll9.onrender.com/moncard')
+      .then(response => response.json()
+    )
+    setBackendData(response);
+  }
+  
   //console.log(backendData)
 
+  function handleFour() {
+    //console.log("6");
+    let fourCards = backendData.sort(() => Math.random() -0.5)
+      .slice(0,4).map((card) => card);
+
+    console.log(fourCards);
+    resetCards(fourCards)
+
+  }
+
+  function handleSix() {
+    //console.log("6");
+    let sixCards = backendData.sort(() => Math.random() -0.5).map((card) => card);
+
+    console.log(sixCards);
+    resetCards(sixCards)
+
+  }
+
   //shuffle and duplicate cards
-  const resetCards = useCallback(() => {
-    const shuffled = [...backendData, ...backendData]
+  function resetCards(cardLength) {
+    const shuffled = [...cardLength, ...cardLength]
         .sort(() => Math.random() - .5)
     setCards(shuffled)
     //console.log('Card Shuffler', shuffled);
-  }, [backendData]);
+  };
 
   //Reset the cards during each turn
   function resetTurn(){
@@ -53,6 +73,8 @@ function App(){
 
   return (
     <div className="App">
+      <button onClick={handleFour}>4</button>
+      <button onClick={handleSix}>6</button>
       <GameHandlers 
         moves={moves}
         score={score}

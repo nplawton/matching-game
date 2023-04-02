@@ -5,6 +5,11 @@ import "./levelSelector.css"
 const LevelSelector = ({ resetTurn, setMoves, setScore,
                      resetCards, backendData }) => {
 
+    function gameController(){
+        setMoves(0);
+        setScore(0);
+        resetTurn();
+    }
 
     function Beginner() {
         
@@ -13,9 +18,7 @@ const LevelSelector = ({ resetTurn, setMoves, setScore,
     
         console.log(fourCards);
         resetCards(fourCards);
-        setMoves(0);
-        setScore(0);
-        resetTurn();
+        gameController();
     
     }
     
@@ -26,9 +29,7 @@ const LevelSelector = ({ resetTurn, setMoves, setScore,
         
         console.log(eightCards);
         resetCards(eightCards)
-        setMoves(0);
-        setScore(0);
-        resetTurn();
+        gameController();
 
     }
 
@@ -39,9 +40,7 @@ const LevelSelector = ({ resetTurn, setMoves, setScore,
         
         console.log(twelveCards);
         resetCards(twelveCards)
-        setMoves(0);
-        setScore(0);
-        resetTurn();
+        gameController();
 
     }
 
@@ -52,9 +51,7 @@ const LevelSelector = ({ resetTurn, setMoves, setScore,
         
         console.log(eighteenCards);
         resetCards(eighteenCards)
-        setMoves(0);
-        setScore(0);
-        resetTurn();
+        gameController();
 
     }
 
@@ -64,9 +61,7 @@ const LevelSelector = ({ resetTurn, setMoves, setScore,
         
         console.log(allCards);
         resetCards(allCards)
-        setMoves(0);
-        setScore(0);
-        resetTurn();
+        gameController();
 
     }
 

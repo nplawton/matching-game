@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Gameboard from './components/Gameboard';
 import GameHandlers from './components/GameHandlers';
@@ -32,25 +32,6 @@ function App(){
   
   //console.log(backendData)
 
-  function handleFour() {
-    //console.log("6");
-    let fourCards = backendData.sort(() => Math.random() -0.5)
-      .slice(0,4).map((card) => card);
-
-    console.log(fourCards);
-    resetCards(fourCards)
-
-  }
-
-  function handleSix() {
-    //console.log("6");
-    let sixCards = backendData.sort(() => Math.random() -0.5).map((card) => card);
-
-    console.log(sixCards);
-    resetCards(sixCards)
-
-  }
-
   //shuffle and duplicate cards
   function resetCards(cardLength) {
     const shuffled = [...cardLength, ...cardLength]
@@ -73,8 +54,6 @@ function App(){
 
   return (
     <div className="App">
-      <button onClick={handleFour}>4</button>
-      <button onClick={handleSix}>6</button>
       <GameHandlers 
         moves={moves}
         score={score}
@@ -82,6 +61,7 @@ function App(){
         setMoves={setMoves}
         setScore={setScore}
         resetCards={resetCards}
+        backendData={backendData}
       />
       <Gameboard 
         id="gameboard"

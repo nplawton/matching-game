@@ -29,7 +29,7 @@ body{
 }
 
 #scoreboard{
-  grid-row: 3;
+  grid-row:2;
   border: 4px solid black;
   border-radius: 20%;
   font-size: 30px;
@@ -40,7 +40,7 @@ body{
 }
 
 #moves{
-  grid-row: 4;
+  grid-row: 3;
   border: 4px solid black;
   border-radius: 20%;
   font-size: 30px;
@@ -57,12 +57,10 @@ body{
 
 }
 
-#newGame{
+#levelSelector{
   grid-row: 1;
-  color: black;
-  font-size: 30px;
-  border: 4px solid black;
-  border-radius: 20%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 img {

@@ -3,24 +3,20 @@ import "../App.css";
 
 import Moves from './Moves';
 import ScoreBoard from './ScoreBoard';
+import LevelSelector from "./LevelSelector";
 
-const GameHandlers = ({ moves, score, resetTurn, setMoves, setScore, resetCards }) => {
-
-    function handleNewGameClick(){
-        resetTurn();
-        setMoves(0);
-        setScore(0);
-        resetCards();
-    }
+const GameHandlers = ({ moves, score, resetTurn, setMoves, setScore,
+                     resetCards, backendData }) => {
 
     return (
         <div id="gameHandler">
-            <button
-                id="newGame" 
-                onClick={() => handleNewGameClick() }
-            >
-                New Game
-            </button>
+            <LevelSelector 
+                resetTurn={resetTurn}
+                setMoves={setMoves}
+                setScore={setScore}
+                resetCards={resetCards}
+                backendData={backendData}
+            />
            <Moves moves={moves} />
            <ScoreBoard score={score} />
         </div>

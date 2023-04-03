@@ -5,8 +5,8 @@ import Card from './Card';
 
 
 const Gameboard = ({ firstSelection, setFirstSelection, 
-    secondSelection, setSecondSelection, cards, setCards,
-    setScore, disabled, setDisabled, resetTurn }) => {
+    secondSelection, setSecondSelection, cards, setCards, score,
+    setScore, disabled, setDisabled, resetTurn, setGameOver }) => {
 
     //Handles the choice
     function handleCardClick(card){
@@ -15,6 +15,11 @@ const Gameboard = ({ firstSelection, setFirstSelection,
             : setFirstSelection(card);
         // console.log('FirstSelection is:', firstSelection);
         // console.log('SecondSelection is:', secondSelection);
+    }
+
+    function UserWin(){
+        setGameOver(true);
+        //console.log('Game Over at GameBoard: ', gameOver);
     }
 
     /*
@@ -49,7 +54,12 @@ const Gameboard = ({ firstSelection, setFirstSelection,
             } else {
                 setTimeout(() => resetTurn(), 1000);
                 //console.log('Cards Don\'t Match');
-            }  
+            }
+            // console.log("Number Cards", cards.length / 2) 
+            // console.log(score + 1);
+            if (score + 1 === cards.length / 2){
+                UserWin();
+            }
         }
         
     }, [firstSelection, secondSelection])

@@ -14,7 +14,8 @@ function App(){
   const [firstSelection, setFirstSelection] = useState(null);
   const [secondSelection, setSecondSelection] = useState(null);
   const [query, setQuery] = useState('');
-  const [searchCreature, setSearchCreature] = useState({})
+  const [searchCreature, setSearchCreature] = useState({});
+  const [gameOver, setGameOver] = useState(false);
 
   useEffect(() => {
     getData();
@@ -48,11 +49,11 @@ function App(){
       <GameHandlers 
         moves={moves}
         score={score}
-        resetTurn={resetTurn}
         setMoves={setMoves}
         setScore={setScore}
         resetCards={resetCards}
         backendData={backendData}
+        gameOver={gameOver}
       />
       <Gameboard 
         firstSelection={firstSelection}
@@ -62,9 +63,11 @@ function App(){
         cards={cards}
         setCards={setCards}
         setScore={setScore}
+        score={score}
         disabled={disabled}
         setDisabled={setDisabled}
         resetTurn={resetTurn}
+        setGameOver={setGameOver}
       />
       <SearchArea 
         backendData={backendData}

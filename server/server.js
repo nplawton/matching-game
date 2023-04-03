@@ -36,13 +36,13 @@ app.get('/moncard/:id', (req, res, next) => {
     console.log(id);
 
     pool.query(`SELECT id, mon_name, mon_img, descrip FROM moncard WHERE id = $1`, 
-        [id], (err, res) => {
+        [id], (err, data) => {
 
             if(err){
                 return next(err);
             }
 
-            const creature = res.rows[0];
+            const creature = data.rows[0];
             console.log('Single creature found: ', creature);
 
             if(creature){

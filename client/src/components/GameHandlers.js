@@ -11,7 +11,6 @@ const GameHandlers = ({ moves, score, resetTurn, setMoves, setScore,
     return (
         <div id="gameHandler">
             <LevelSelector 
-                resetTurn={resetTurn}
                 setMoves={setMoves}
                 setScore={setScore}
                 resetCards={resetCards}

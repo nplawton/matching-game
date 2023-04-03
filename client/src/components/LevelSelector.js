@@ -2,13 +2,11 @@ import React from "react";
 import "../App.css";
 import "./levelSelector.css"
 
-const LevelSelector = ({ resetTurn, setMoves, setScore,
-                     resetCards, backendData }) => {
+const LevelSelector = ({ setMoves, setScore, resetCards, backendData }) => {
 
     function gameController(){
         setMoves(0);
         setScore(0);
-        resetTurn();
     }
 
     function Beginner() {

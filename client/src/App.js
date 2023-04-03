@@ -14,10 +14,6 @@ function App(){
   const [firstSelection, setFirstSelection] = useState(null);
   const [secondSelection, setSecondSelection] = useState(null);
   const [query, setQuery] = useState('');
-  const [monNames, setMonNames] = useState('');
-  const [monImg, setMonImg] = useState('');
-  const [monDescrip, setMonDescrip] = useState('');
-  const [monId, setMonId] = useState('');
 
   useEffect(() => {
     getData();
@@ -79,15 +75,7 @@ function App(){
       <SearchArea 
         backendData={backendData}
         setQuery={setQuery}
-        query={query}
-        monNames={monNames}
-        monImg={monImg}
-        monDescrip={monDescrip}
-        monId={monId} 
-        setMonNames={setMonNames}
-        setMonImg={setMonImg}
-        setMonDescrip={setMonDescrip}
-        setMonId={setMonId}   
+        query={query}  
       />
     </div>
   )

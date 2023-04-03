@@ -1,63 +1,62 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from 'axios';
 import './search.css';
 
 
+const Search = ({ backendData, query, setQuery, handleQuery }) => {
 
-const Search = ({ backendData, query, setQuery, setMonImg, setMonDescrip, setMonNames, setMonId }) => {
-
-    function onChange (e){
+    const onChange = (e) => {
         setQuery(e.target.value);
     }
 
-    function onSearch (searchTerm) {
-        
+    const onSearch = (searchTerm) => {
         setQuery(searchTerm);
-        //console.log(searchTerm);
+        console.log('search', searchTerm);
+        handleQuery(searchTerm);
     }
-
+    
     return(
         <div className="search-container">
             <div className="search-inner">
-            <input 
-                type='text'
-                icon='search'
-                placeholder="Search"
-                query={query}
-                onChange={onChange}
-            />
-            <button
-                id="searchBtn"
-                onClick={() => onSearch(query)}
-            >
-                Search
-            </button>
+                <input 
+                    type="text"
+                    value={query}
+                    placeholder='Search here...'
+                    onChange={onChange}
+                />
+                <button
+                    id="searchBtn"
+                    onClick={() => onSearch(query)}
+                >
+                    Search
+                </button>
             </div>
-            <div className="dropdown">
+            <div
+                className="dropdown"
+            >
                 {
-                    backendData.filter(mon => {
+                    backendData.filter(
+                       mon => {
                         const searchTerm = query;
                         const monName = mon.mon_name;
-                        return searchTerm && monName.startsWith(searchTerm) && monName !== searchTerm;
-                    }).slice(0, 10)
-                        .map((mon) => (
-                            <div 
-                                className="dropdown-row"
-                                onClick={() => onSearch(mon.mon_name)}
-                                key={mon.id}
-                            >
-                                {mon.mon_name}
-                            </div>
-                    ))
-                }
+
+                        return searchTerm && monName.startsWith(searchTerm) && monName !== searchTerm; 
+                       } 
+                    ).slice(
+                        0, 10
+                    ).map((mon) => (
+                        <div
+                            onClick={() => onSearch(mon.mon_name)}
+                            key={mon.id}    
+                            className="dropdown-row"
+                        >
+                            {mon.mon_name}
+                        </div>
+                ))}
             </div>
         </div>
     )
-
+    
 }
 
 export default Search;
-
-// setMonNames(searchTerm.mon_name);
-// setMonImg(searchTerm.mon_img);
-// setMonDescrip(searchTerm.descrip);
-// setMonId(searchTerm.id);

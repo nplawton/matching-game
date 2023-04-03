@@ -29,6 +29,32 @@ app.get('/moncard', (req, res, next) => {
     });
 });
 
+app.get('/moncard/:mon_name', (req, res, next) => {
+    
+    const name = req.params.mon_name;
+
+    console.log(name);
+
+    pool.query(`SELECT id, mon_name, mon,img, descrip FROM moncard WHERE name = $1`, 
+        [name], (err, res) => {
+
+            if(err){
+                return next(err);
+            }
+
+            const creature = results.rows[0];
+            console.log('Single creature found: ', creature);
+
+            if(creature){
+                returnres.send(creature);
+            }else{
+                return res.status(404).send('No creature was found');
+            }
+
+        }) 
+
+});
+
 //Port Listeaning
 app.listen(port, () => {
     console.log(`listening on ${port}`);

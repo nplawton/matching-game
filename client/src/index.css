@@ -17,15 +17,18 @@ body{
   background-size: cover;
 }
 
-#searchArea{
-  grid-row: 1;
-  grid-column: 3;
+#gameHandler{
+  grid-column: 1;
   display: grid;
-  grid-template-rows: repeat(6, 1fr);
+}
+
+#levelSelector{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(5, 1fr);
 }
 
 #scoreboard{
-  grid-row: 1;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 9px;
@@ -51,7 +54,6 @@ body{
 }
 
 #totalmoves{
-  grid-row: 2;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 9px;
@@ -76,27 +78,9 @@ body{
   font-family: Papyrus;
 }
 
-#gameHandler{
+#searchArea{
   grid-row: 1;
-  display: grid;
-  grid-template-rows: repeat(4, 1fr);
-  grid-column: 1;
-
-}
-
-#levelSelector{
-  grid-row: 1;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-}
-
-#talley{
-  grid-row: 2;
+  grid-column: 3;
   display: grid;
   grid-template-rows: repeat(2, 1fr);
-}
-
-img {
-  display: block;
 }

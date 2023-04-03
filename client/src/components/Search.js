@@ -17,6 +17,7 @@ const Search = ({ backendData, query, setQuery, handleQuery }) => {
         
         if (creature) {
             handleQuery(creature);
+            
         }
 
     }

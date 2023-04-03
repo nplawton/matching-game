@@ -17,15 +17,16 @@ const SearchArea = ({ backendData, query, setQuery, searchCreature, setSearchCre
    
     return(
         <div id="searchArea">
-            <ResultWindow 
-                searchCreature={searchCreature}
-            />
             <Search 
                 backendData={backendData}
                 query={query}
                 setQuery={setQuery}
                 handleQuery={handleQuery}     
             />
+            <ResultWindow 
+                searchCreature={searchCreature}
+            />
+            
         </div>
         
     )

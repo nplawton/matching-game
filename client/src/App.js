@@ -51,6 +51,7 @@ function App(){
 
   return (
     <div className="App">
+      <h1 id='gameTitle'>Matching</h1>
       <GameHandlers 
         moves={moves}
         score={score}

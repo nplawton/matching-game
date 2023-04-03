@@ -10,7 +10,7 @@ const ResultWindow = ({ searchCreature }) => {
             id="resultWindow"
         
         >
-            <h1 id="name">{searchCreature.mon_name.toUpperCase()}</h1>
+            <h1 id="name">{searchCreature.mon_name}</h1>
             <img id="monimg" src={searchCreature.mon_img} />
             <p id='descrip'>{searchCreature.descrip}</p>
         </div>

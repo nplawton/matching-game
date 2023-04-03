@@ -42,11 +42,11 @@ app.get('/moncard/:id', (req, res, next) => {
                 return next(err);
             }
 
-            const creature = results.rows[0];
+            const creature = res.rows[0];
             console.log('Single creature found: ', creature);
 
             if(creature){
-                returnres.send(creature);
+                return res.send(creature);
             }else{
                 return res.status(404).send('No creature was found');
             }

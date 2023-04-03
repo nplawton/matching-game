@@ -29,14 +29,14 @@ app.get('/moncard', (req, res, next) => {
     });
 });
 
-app.get('/moncard/:mon_name', (req, res, next) => {
+app.get('/moncard/:id', (req, res, next) => {
     
-    const name = req.params.mon_name;
+    const id = req.params.id;
 
-    console.log(name);
+    console.log(id);
 
-    pool.query(`SELECT id, mon_name, mon_img, descrip FROM moncard WHERE mon_name = $1`, 
-        [name], (err, res) => {
+    pool.query(`SELECT id, mon_name, mon_img, descrip FROM moncard WHERE id = $1`, 
+        [id], (err, res) => {
 
             if(err){
                 return next(err);
@@ -52,6 +52,31 @@ app.get('/moncard/:mon_name', (req, res, next) => {
             }
 
         }) 
+
+});
+
+app.post('/moncard', (req, res, next) => {
+
+    const { mon_name, mon_img, descrip, matchFound, flipped } = req.body;
+
+    if (mon_name && mon_img && descrip && matchFound && flipped){
+        pool.query(`INSERT INTO moncard (mon_name, mon_img, descrip, matchFound, 
+            flipped) VALUES ($1, $2, $3, $4, $5) RETURNING *`, 
+            [mon_name, mon_img, descrip, matchFound, flipped], (err, data) => {
+
+                const newCreture = data.rows[0];
+                console.log('Creature Created: ', newCreture);
+
+                if(newCreture){
+                    return res.send(newCreture);
+                }else{
+                    return next(err);
+                }
+
+        });
+    }else{
+        return res.status(400).send('Creature entry information missing. Please update and try again');
+    }
 
 });
 

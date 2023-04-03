@@ -39,3 +39,20 @@ input{
 #resultWindow{
     grid-row: 1;
 }
+
+#name{
+    font-family: Papyrus;
+    color: #e6e6e6;
+    font-size: 30px;
+}
+
+#monimg{
+    height: 200px;
+    width: 200px;
+}
+
+#descrip{
+    font-family: Papyrus;
+    color: #e6e6e6;
+    font-size: 15px;
+}

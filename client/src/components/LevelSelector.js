@@ -14,7 +14,7 @@ const LevelSelector = ({ setMoves, setScore, resetCards, backendData }) => {
         let fourCards = backendData.sort(() => Math.random() -0.5)
           .slice(0,4).map((card) => card);
     
-        console.log(fourCards);
+        //console.log(fourCards);
         resetCards(fourCards);
         gameController();
     
@@ -25,7 +25,7 @@ const LevelSelector = ({ setMoves, setScore, resetCards, backendData }) => {
         let eightCards = backendData.sort(() => Math.random() -0.5)
             .slice(0,8).map((card) => card);
         
-        console.log(eightCards);
+        //console.log(eightCards);
         resetCards(eightCards)
         gameController();
 
@@ -36,7 +36,7 @@ const LevelSelector = ({ setMoves, setScore, resetCards, backendData }) => {
         let twelveCards = backendData.sort(() => Math.random() -0.5)
             .slice(0,12).map((card) => card);
         
-        console.log(twelveCards);
+        //console.log(twelveCards);
         resetCards(twelveCards)
         gameController();
 
@@ -47,7 +47,7 @@ const LevelSelector = ({ setMoves, setScore, resetCards, backendData }) => {
         let eighteenCards = backendData.sort(() => Math.random() -0.5)
             .slice(0,18).map((card) => card);
         
-        console.log(eighteenCards);
+        //console.log(eighteenCards);
         resetCards(eighteenCards)
         gameController();
 
@@ -57,7 +57,7 @@ const LevelSelector = ({ setMoves, setScore, resetCards, backendData }) => {
 
         let allCards = backendData.sort(() => Math.random() -0.5).map((card) => card);
         
-        console.log(allCards);
+        //console.log(allCards);
         resetCards(allCards)
         gameController();
 

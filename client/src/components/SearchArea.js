@@ -7,17 +7,18 @@ import ResultWindow from "./ResultWindow";
 
 
 
-const SearchArea = ({ backendData, query, setQuery }) => {
+const SearchArea = ({ backendData, query, setQuery, searchCreature, setSearchCreature }) => {
 
     function handleQuery (query) {
-        console.log("Current Query =", query);
+        console.log("Current Query (SA) =", query);
+        setSearchCreature(query)
     }
 
    
     return(
         <div id="searchArea">
             <ResultWindow 
-                
+                searchCreature={searchCreature}
             />
             <Search 
                 backendData={backendData}

@@ -1,20 +1,18 @@
 import React from "react";
-import axios from 'axios';
 import './search.css';
 
 
-const ResultWindow = ({ monNames, monImg, monDescrip, monId }) => {
-
-    
+const ResultWindow = ({ searchCreature }) => {
     
     return(
         <div 
-            key = {monId}
+            key = {searchCreature.id}
             id="resultWindow"
         
         >
-            <h1>{monNames}</h1>
-            {/* {console.log(`Result Window name: ${monNames}`)} */}
+            <h1 id="name">{searchCreature.mon_name.toUpperCase()}</h1>
+            <img id="monimg" src={searchCreature.mon_img} />
+            <p id='descrip'>{searchCreature.descrip}</p>
         </div>
     )
 

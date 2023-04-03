@@ -11,8 +11,14 @@ const Search = ({ backendData, query, setQuery, handleQuery }) => {
 
     const onSearch = (searchTerm) => {
         setQuery(searchTerm);
-        console.log('search', searchTerm);
-        handleQuery(searchTerm);
+        //console.log('search', searchTerm);
+        
+        const creature = backendData.find(mon => mon.mon_name === searchTerm);
+        
+        if (creature) {
+            handleQuery(creature);
+        }
+
     }
     
     return(

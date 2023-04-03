@@ -14,6 +14,7 @@ function App(){
   const [firstSelection, setFirstSelection] = useState(null);
   const [secondSelection, setSecondSelection] = useState(null);
   const [query, setQuery] = useState('');
+  const [searchCreature, setSearchCreature] = useState({})
 
   useEffect(() => {
     getData();
@@ -74,7 +75,9 @@ function App(){
       <SearchArea 
         backendData={backendData}
         setQuery={setQuery}
-        query={query}  
+        query={query}
+        searchCreature={searchCreature}
+        setSearchCreature={setSearchCreature} 
       />
     </div>
   )

@@ -35,7 +35,7 @@ app.get('/moncard/:mon_name', (req, res, next) => {
 
     console.log(name);
 
-    pool.query(`SELECT id, mon_name, mon,img, descrip FROM moncard WHERE name = $1`, 
+    pool.query(`SELECT id, mon_name, mon,img, descrip FROM moncard WHERE mon_name = $1`, 
         [name], (err, res) => {
 
             if(err){

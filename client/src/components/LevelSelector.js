@@ -65,36 +65,36 @@ const LevelSelector = ({ setMoves, setScore, resetCards, backendData }) => {
 
     return (
         <div id="levelSelector">
-            <button 
-                id='beginner'
+            <h1 id="beginner">4 Cards</h1>
+            <img 
+                id='beginnerBtn'
                 onClick={Beginner}
-            >
-                4
-            </button>
-            <button 
-                id='easy'
+                src='https://clipartix.com/wp-content/uploads/2017/11/Free-cartoon-baby-dragon-clip-art.png'
+            />
+            <h1 id='easy'>8 Cards</h1>
+            <img
+                id='easyBtn'
                 onClick={Easy}
-            >
-                8
-            </button>
-            <button 
-                id='medium'
+                src="http://cdn.shopify.com/s/files/1/0537/1501/products/DragonDie_placeitfile_1200x1200.png?v=1559771685"
+            />
+            <h1 id='medium'>12 Cards</h1>
+            <img 
+                id='mediumBtn'
                 onClick={Medium}
-            >
-                12
-            </button>
-            <button 
-                id='hard'
+                src='https://flightrising.com/rendern/350/25390/2538983_350.png'
+            />
+            <h1 id='hard'>18 Cards</h1>
+            <img
+                id='hardBtn'
                 onClick={Hard}
-            >
-                18
-            </button>
-            <button 
-                id='insane'
+                src='https://www.gmbinder.com/images/2FWC9yU.png'
+            />
+            <h1 id='insane'>28 Cards</h1>
+            <img
+                id='insaneBtn'
                 onClick={clinicallyInsane}
-            >
-                28
-            </button>
+                src='https://i.pinimg.com/originals/c8/07/4b/c8074b0c09479065b6fd72d8a866a559.png'
+            />
         </div>
     )
 

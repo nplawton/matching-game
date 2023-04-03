@@ -16,8 +16,10 @@ const GameHandlers = ({ moves, score, resetTurn, setMoves, setScore,
                 resetCards={resetCards}
                 backendData={backendData}
             />
-           <Moves moves={moves} />
-           <ScoreBoard score={score} />
+           <div id='talley'>
+              <Moves moves={moves} />
+              <ScoreBoard score={score} />
+           </div>
         </div>
     )
 

@@ -1,30 +1,96 @@
 #beginner{
+    grid-column: 1;
+    grid-row: 1;
     font-size: 20px;
-    background-color: blueviolet;
-    border: 5px solid black;
+    text-align: center;
+    font-family: Papyrus;
+}
+
+#beginnerBtn{
+    grid-column: 2;
+    grid-row: 1;
+    height: 60px;
+    width: 60px;
+    cursor: pointer;
+    border: 4px solid #00A36C;
+    background-color: #00b377;
+
 }
 
 #easy{
+    grid-column: 1;
+    grid-row: 2;
     font-size: 20px;
-    background-color: blueviolet;
-    border: 5px solid black;
+    text-align: center;
+    font-family: Papyrus;
+}
+
+#easyBtn{
+    grid-column: 2;
+    grid-row: 2;
+    height: 60px;
+    width: 60px;
+    cursor: pointer;
+    border: 4px solid #00A36C;
+    background-color: #00b377;
 }
 
 #medium{
+    grid-column: 1;
+    grid-row: 3;
     font-size: 20px;
-    background-color: blueviolet;
-    border: 5px solid black;
+    text-align: center;
+    font-family: Papyrus;
+}
+
+#mediumBtn{
+    grid-column: 2;
+    grid-row: 3;
+    height: 60px;
+    width: 60px;
+    cursor: pointer;
+    border: 4px solid #00A36C;
+    background-color: #00b377;
 }
 
 #hard{
+    grid-column: 1;
+    grid-row: 4;
     font-size: 20px;
-    background-color: blueviolet;
-    border: 5px solid black;
+    text-align: center;
+    font-family: Papyrus;
+}
+
+#hardBtn{
+    grid-column: 2;
+    grid-row: 4;
+    height: 60px;
+    width: 60px;
+    cursor: pointer;
+    border: 4px solid #00A36C;
+    background-color: #00b377;
 }
 
 #insane{
+    grid-column: 1;
+    grid-row: 5;
     font-size: 20px;
-    background-color: blueviolet;
-    border: 5px solid black;
+    text-align: center;
+    font-family: Papyrus;
+}
 
+#insaneBtn{
+    grid-column: 2;
+    grid-row: 5;
+    height: 60px;
+    width: 60px;
+    cursor: pointer;
+    border: 4px solid #00A36C;
+    background-color: #00b377;
+
+}
+
+#beginnerBtn:hover, #easyBtn:hover, #mediumBtn:hover, 
+#hardBtn:hover, #insaneBtn:hover{
+    background-color: #66ffcc;
 }

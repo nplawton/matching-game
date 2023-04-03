@@ -4,8 +4,9 @@ import "../App.css";
 const Moves = ({moves}) => {
 
     return (
-        <div id="moves">
-           Total Moves: {moves}
+        <div id="totalmoves">
+            <h1 id='movestitle'>Total Moves:</h1>
+            <h2 id="moves">{moves}</h2>
         </div>
     )
 

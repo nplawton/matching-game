@@ -26,8 +26,6 @@ function App(){
     )
     setBackendData(response);
   }
-  
-  //console.log(backendData)
 
   //shuffle and duplicate cards
   function resetCards(cardLength) {
@@ -45,13 +43,8 @@ function App(){
     setDisabled(false);
   }
 
-  // useEffect(() => {
-  //   resetCards()
-  // }, [])
-
   return (
     <div className="App">
-      <h1 id='gameTitle'>Matching</h1>
       <GameHandlers 
         moves={moves}
         score={score}

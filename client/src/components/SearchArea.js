@@ -10,7 +10,7 @@ import ResultWindow from "./ResultWindow";
 const SearchArea = ({ backendData, query, setQuery, searchCreature, setSearchCreature }) => {
 
     function handleQuery (query) {
-        console.log("Current Query (SA) =", query);
+        //console.log("Current Query (SA) =", query);
         setSearchCreature(query)
     }
 

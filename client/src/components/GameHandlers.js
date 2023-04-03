@@ -10,6 +10,7 @@ const GameHandlers = ({ moves, score, resetTurn, setMoves, setScore,
 
     return (
         <div id="gameHandler">
+            <h1 id='gameTitle'>Matching</h1>
             <LevelSelector 
                 setMoves={setMoves}
                 setScore={setScore}

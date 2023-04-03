@@ -1,12 +1,10 @@
 .App{
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  display: flex;
   place-items: center;
   gap: 2rem;
 }
 
 #gameTitle{
-  grid-column-start: 1;
   font-size: 50px;
   color: #e6e6e6;
   font-family: Papyrus;

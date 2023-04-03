@@ -60,7 +60,6 @@ function App(){
         backendData={backendData}
       />
       <Gameboard 
-        id="gameboard"
         firstSelection={firstSelection}
         setFirstSelection={setFirstSelection}
         secondSelection={secondSelection}

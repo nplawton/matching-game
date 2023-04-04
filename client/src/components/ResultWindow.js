@@ -11,7 +11,7 @@ const ResultWindow = ({ searchCreature }) => {
         
         >
             <h1 id="name">{searchCreature.mon_name}</h1>
-            <img id="monimg" src={searchCreature.mon_img} />
+            <img id="monimg" src={searchCreature.mon_img} alt='' />
             <p id='descrip'>{searchCreature.descrip}</p>
         </div>
     )

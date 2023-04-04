@@ -22,7 +22,7 @@ const Card = ({ card, disabled, handleCardClick, flipped }) => {
             </div>
             <div className="side" id="cardBack">
                 <h1 id="cardText">{card.mon_name}</h1>
-                <img id="backImage" src={card.mon_img} />
+                <img id="backImage" src={card.mon_img} alt='' />
             </div>
         </button>
     );

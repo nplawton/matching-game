@@ -1,0 +1,12 @@
+#endGame{
+    background-color: aquamarine;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#text{
+    font-size: 30px;
+    color: black;
+    text-align: center;
+}

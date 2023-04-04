@@ -2,12 +2,8 @@ import React from "react";
 import "../App.css";
 import "./levelSelector.css"
 
-const LevelSelector = ({ setMoves, setScore, resetCards, backendData }) => {
+const LevelSelector = ({ gameController, resetCards, backendData, setPrevCards }) => {
 
-    function gameController(){
-        setMoves(0);
-        setScore(0);
-    }
 
     function Beginner() {
         
@@ -17,7 +13,7 @@ const LevelSelector = ({ setMoves, setScore, resetCards, backendData }) => {
         resetCards(fourCards);
         gameController();
         //console.log(fourCards);
-    
+        setPrevCards(fourCards);
     }
     
     function Easy() {
@@ -26,9 +22,9 @@ const LevelSelector = ({ setMoves, setScore, resetCards, backendData }) => {
             .slice(0,8).map((card) => card);
         
         //console.log(eightCards);
-        resetCards(eightCards)
+        resetCards(eightCards);
         gameController();
-
+        setPrevCards(eightCards);
     }
 
     function Medium() {
@@ -37,8 +33,9 @@ const LevelSelector = ({ setMoves, setScore, resetCards, backendData }) => {
             .slice(0,12).map((card) => card);
         
         //console.log(twelveCards);
-        resetCards(twelveCards)
+        resetCards(twelveCards);
         gameController();
+        setPrevCards(twelveCards);
 
     }
     
@@ -49,18 +46,21 @@ const LevelSelector = ({ setMoves, setScore, resetCards, backendData }) => {
             .slice(0,18).map((card) => card);
         
         //console.log(eighteenCards);
-        resetCards(eighteenCards)
+        resetCards(eighteenCards);
         gameController();
+        setPrevCards(eighteenCards);
 
     }
 
     function clinicallyInsane() {
 
-        let allCards = backendData.sort(() => Math.random() -0.5).map((card) => card);
+        let allCards = backendData.sort(() => Math.random() -0.5)
+        .slice(0,28).map((card) => card);
         
         //console.log(allCards);
-        resetCards(allCards)
+        resetCards(allCards);
         gameController();
+        setPrevCards(allCards);
 
     }
 

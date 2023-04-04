@@ -54,6 +54,7 @@ function App(){
         resetCards={resetCards}
         backendData={backendData}
         gameOver={gameOver}
+        setGameOver={setGameOver}
       />
       <Gameboard 
         firstSelection={firstSelection}

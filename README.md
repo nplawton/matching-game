@@ -1,6 +1,7 @@
 Simple matching game taking in a set of data and turning two elements of the database rows into cards. 
 
 --First Folder: Server
+
     -The server side is built using Node JS with CRUD operations; Get, GET Single, and Post. 
     
     -The environment is handled inside the dbConn.js file; this file allows to minimize repeated code. 
@@ -13,7 +14,7 @@ Simple matching game taking in a set of data and turning two elements of the dat
 --Second Folder: Client
 
     - Game was built using React JS.
-    
+
     - This is the main app and functionality for the game.
    
     - Before running the project look in the package.json for the dependencies and devDependencies to install in the terminal.

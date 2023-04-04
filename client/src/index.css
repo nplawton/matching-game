@@ -7,6 +7,7 @@
 :root{
   --clr-neon: hsl(71, 40%, 45%);
   --clr-bg: hsl(323 21% 16%);
+  --clr-next: hsl(355, 73%, 26%);
 }
 
 body{

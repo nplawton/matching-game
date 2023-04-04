@@ -97,11 +97,11 @@
 }
 
 #beginnerBtn:hover{
-    background-color: #66ffcc;
+    background-color: skyblue;
 }
 
 #easyBtn:hover{
-    background-color: darkgreen;
+    background-color: #66ffcc;
 }
 
 #mediumBtn:hover{

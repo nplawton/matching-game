@@ -2,61 +2,66 @@ import React from "react";
 import "../App.css";
 import "./levelSelector.css"
 
-const LevelSelector = ({ gameController, resetCards, backendData, setPrevCards }) => {
+const LevelSelector = ({ gameController, resetCards, backendData, setPrevCards, setNextCards }) => {
+
+    let fourCards = backendData.sort(() => Math.random() -0.5)
+          .slice(0,4).map((card) => card);
+
+    let eightCards = backendData.sort(() => Math.random() -0.5)
+        .slice(0,8).map((card) => card);
+
+    let twelveCards = backendData.sort(() => Math.random() -0.5)
+        .slice(0,12).map((card) => card);
+
+    let eighteenCards = backendData.sort(() => Math.random() -0.5)
+        .slice(0,18).map((card) => card);
+    
+    let allCards = backendData.sort(() => Math.random() -0.5)
+        .slice(0,28).map((card) => card);
 
 
     function Beginner() {
-        
-        let fourCards = backendData.sort(() => Math.random() -0.5)
-          .slice(0,4).map((card) => card);
     
         resetCards(fourCards);
         gameController();
         //console.log(fourCards);
         setPrevCards(fourCards);
+        setNextCards(eightCards)
+        
     }
     
     function Easy() {
-
-        let eightCards = backendData.sort(() => Math.random() -0.5)
-            .slice(0,8).map((card) => card);
         
         //console.log(eightCards);
         resetCards(eightCards);
         gameController();
         setPrevCards(eightCards);
+        setNextCards(twelveCards)
     }
 
     function Medium() {
 
-        let twelveCards = backendData.sort(() => Math.random() -0.5)
-            .slice(0,12).map((card) => card);
-        
         //console.log(twelveCards);
         resetCards(twelveCards);
         gameController();
         setPrevCards(twelveCards);
+        setNextCards(eightCards)
 
     }
     
 
     function Hard() {
-
-        let eighteenCards = backendData.sort(() => Math.random() -0.5)
-            .slice(0,18).map((card) => card);
         
         //console.log(eighteenCards);
         resetCards(eighteenCards);
         gameController();
         setPrevCards(eighteenCards);
+        setNextCards(allCards)
 
     }
 
     function clinicallyInsane() {
-
-        let allCards = backendData.sort(() => Math.random() -0.5)
-        .slice(0,28).map((card) => card);
-        
+       
         //console.log(allCards);
         resetCards(allCards);
         gameController();

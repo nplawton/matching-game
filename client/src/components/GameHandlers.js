@@ -11,6 +11,7 @@ const GameHandlers = ({ moves, score, setMoves, setScore,
         resetCards, backendData, gameOver, setGameOver }) => {
     
     const [prevCards, setPrevCards] = useState();
+    const [nextCards, setNextCards] = useState();
 
     function gameController(){
         setMoves(0);
@@ -21,20 +22,23 @@ const GameHandlers = ({ moves, score, setMoves, setScore,
     return (
         <div id="gameHandler">
             <h1 id='gameTitle'>MATCHING</h1>
-            <LevelSelector 
-                gameController={gameController}
-                resetCards={resetCards}
-                backendData={backendData}
-                setPrevCards={setPrevCards}
-            />
-            <Moves moves={moves} />
-            <ScoreBoard score={score} />
             {gameOver && <GameOver 
                             gameOver={gameOver}
                             gameController={gameController}
                             prevCards={prevCards}
                             resetCards={resetCards}
-                        />}
+                            nextCards={nextCards}
+                        />
+            }
+            <LevelSelector 
+                gameController={gameController}
+                resetCards={resetCards}
+                backendData={backendData}
+                setPrevCards={setPrevCards}
+                setNextCards={setNextCards}
+            />
+            <Moves moves={moves} />
+            <ScoreBoard score={score} />
         </div>
     )
 

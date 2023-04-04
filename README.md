@@ -1,10 +1,10 @@
-Simple matching game taking in a set of data and turning two elements of the database rows into cards. 
+Simple matching game taking in a set of data and turning two elements from the database rows into cards. 
 
 --First Folder: Server
 
     -The server side is built using Node JS with CRUD operations; Get, GET Single, and Post. 
     
-    -The environment is handled inside the dbConn.js file; this file allows to minimize repeated code. 
+    -The environment is handled inside the dbConn.js file; this file allows the dev to minimize repeated code errors. 
    
     - The project is deployed through Render.com; with the database table and rows respectively through migrate.js and seed.js
     
@@ -13,19 +13,24 @@ Simple matching game taking in a set of data and turning two elements of the dat
 
 --Second Folder: Client
 
+    <img src={client/project_img/React1.png}>
+    <img src={client/project_img/React2.png}>
+
     - Game was built using React JS.
 
-    - This is the main app and functionality for the game.
+    - This is the main library and functionality for the game.
    
     - Before running the project look in the package.json for the dependencies and devDependencies to install in the terminal.
     
-    - The project_img folder is holding the wire frame for the project and depicts the parent (App), its three children (GameHandlers, Gameboard, and SearchArea), along with each of their children.
+    - The project_img folder is holding the wire frame for the project and depicts the parent (App), its three children (GameHandlers, Gameboard, and SearchArea), along with each of their indivdual children.
+
+    ![plot](client/project_img/WireFrame.jpg)
     
     - Parent: App
        
-        - Holds all information that is passed to multiple children, all critical states, and initial Fetch data.
+        - Holds all information that is drilled down to multiple children, all critical states, and the initial Fetch data.
         
-        - To setup each game the function resetCards() is initially called from the LevelSelector (see LevelSelector).
+        - To setup each game the function resetCards() is initially called from the LevelSelector (see LevelSelector), but the state is changed in multiple children.
        
         - The function resetTurn allows the Gameboard to check the two selected cards and check if they match or not and either way move the game to the next turn by increasing the move count and if not match reset the cards to show the back and reset the two cards’ options being held.
        

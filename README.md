@@ -13,8 +13,8 @@ Simple matching game taking in a set of data and turning two elements from the d
 
 --Second Folder: Client
 
-    ![/client/project_img](React1.png)
-    ![/client/project_img](React2.png)
+    <img src="/client/project_img/React1.png" alt="React1" title="Game Start" />
+    <img src="/client/project_img/React2.png" alt="React2" title="Game End" />
 
     - Game was built using React JS.
 

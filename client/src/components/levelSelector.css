@@ -96,7 +96,22 @@
 
 }
 
-#beginnerBtn:hover, #easyBtn:hover, #mediumBtn:hover, 
-#hardBtn:hover, #insaneBtn:hover{
+#beginnerBtn:hover{
     background-color: #66ffcc;
+}
+
+#easyBtn:hover{
+    background-color: darkgreen;
+}
+
+#mediumBtn:hover{
+    background-color: yellow;
+}
+
+#hardBtn:hover{
+    background-color: orange;
+}
+
+#insaneBtn:hover{
+    background-color: maroon;
 }

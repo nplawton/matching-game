@@ -1,89 +1,55 @@
-Simple matching game taking in a set of data and turning two elements from the database rows into cards. 
+# Matching Game
+---
 
---First Folder: Server
+## Description
+---
+> Simple matching game taking in a set of data and turning elements from the database rows into cards. Want to know more about the card displayed use the search menu section to read up on the creature from the DnD fantasy world.
 
-    -The server side is built using Node JS with CRUD operations; Get, GET Single, and Post. 
-    
-    -The environment is handled inside the dbConn.js file; this file allows the dev to minimize repeated code errors. 
-   
-    - The project is deployed through Render.com; with the database table and rows respectively through migrate.js and seed.js
-    
-    - Before running the project look in the package.json for the dependencies and devDependencies to install in the terminal and the scripts to run inside the terminal and Render.
+![match1](https://live.staticflickr.com/65535/52852396038_f606745b00_b.jpg)
+
+## Table of Contents
+---
+- [Matching Game](#matching-game)
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Screenshot](#screenshot)
+- [Tech](#tech)
+- [License](#license)
 
 
---Second Folder: Client
+## Installation
+---
+** Project was initially built deploying on Render cloud service but have been converted to deploy using a Docker container. To deploy on Render uncommit out this line: const pool = require('./dbConn'), and commit out the other const pool object. This must be done on the sever.js, seed.js, and migrate.js files. **
 
-    <img src="/client/project_img/React1.png" alt="React1" title="Game Start" />
-    <img src="/client/project_img/React2.png" alt="React2" title="Game End" />
+- In a new terminal inside the server folder open and run npm install
+- After the dependencies are install run: docker-compose up --build
+- Open a new terminal window and run: node migrate.js and then node seed.js
+- Open a new terminal window and run: node server.js
+- Open a new terminal window inside the client folder and run: npm install
+- After the dependencies are install run: npm start
 
-    - Game was built using React JS.
+## Usage
+---
+This project was for educational purposes to understand React and develop useHooks skills with a full-stack project. This project is a matching based game with a level selector and a search area section. The game has a level selector to allow the player to pick their difficulty rating; easy (8 pairs), beginner (16 pairs), medium (24 pairs), hard (36 pairs), and clinically insane (56 pairs).
 
-    - This is the main library and functionality for the game.
-   
-    - Before running the project look in the package.json for the dependencies and devDependencies to install in the terminal.
-    
-    - The project_img folder is holding the wire frame for the project and depicts the parent (App), its three children (GameHandlers, Gameboard, and SearchArea), along with each of their indivdual children.
+## Screen Shots
 
-    ![plot](client/project_img/WireFrame.jpg)
-    
-    - Parent: App
-       
-        - Holds all information that is drilled down to multiple children, all critical states, and the initial Fetch data.
-        
-        - To setup each game the function resetCards() is initially called from the LevelSelector (see LevelSelector), but the state is changed in multiple children.
-       
-        - The function resetTurn allows the Gameboard to check the two selected cards and check if they match or not and either way move the game to the next turn by increasing the move count and if not match reset the cards to show the back and reset the two cards’ options being held.
-       
-        - The game was developed with the App having three fields of interest; Child 1; GameHandlers (Objects which support game play) / Child 2; Gameboard / Child 3; SearchArea (to look up the cards that are being shown)
-    
-    - Child 1: GameHandlers
+- The Search area has a drop-down autofill feature that allows the user to quickly select the creature or continue to type it out.
 
-        - GameHandlers was developed to handle all the functions that support or inform the player.
+![searchArea](https://live.staticflickr.com/65535/52851364442_b5dfd39fe8_w.jpg)
 
-        - GameHandles the game's title to allow a nice look and feel to the game.
+- The game will track the users total attempts as well as scores. When the score matches the number of pairs the game over message will appear. The user will have the ability to select to stay on the current difficulty or move up one level of difficulty.
 
-        - GameOver menu; is a conditional method built in when the score and card.length are equal to each other handled inside the Gameboard (see Gameboard). 
+![fullScreen](https://live.staticflickr.com/65535/52851364547_6e04e85612_b.jpg)
 
-            - Once all cards have been matched and disabled the player will be shown the Winner message and the NewGame Button.
+## Tech
+---
+- Front End: React
+- Backend: Express.js
+- Database: Postgresql
+- Tools: Postman, Render, Docker, GitHub
 
-            -The NewGame button is stylized with a glow effect and hover abilities
-
-        - LevelSelector manages the difficulty rating of the game. 
-        
-            -Using a limiter to determine the set number of initial rows to be played with (4, 8, 12, 18, and 28). 
-            
-            - The other issue was that it would be the same rows every time, so the LevelSelector has a Sort added to allow the database to randomly sort the rows prior to the slice being added and lastly being mapped into a new array. 
-            
-            - The cards will be duplicated inside the ResetCards function. The cards will be given their index value in the Gameboard when the cards are mapped onto the board.
-
-            - When the difficulty is selected it will also set the PrevCard state as well. When the player selects "New Game", at the end of the game, the game will reset with the last chosen difficulty level and will regenerate that number of cards.
-
-        - Moves: Keeps track of the amount of moves a player makes
-
-        - Score: keeps track of the current score of the game and is a critical piece to allow the end game to be "true".
-
-    - Child 2: Gameboard
-
-        - The Gameboard has one child Card. The Card will generate a random row as a card. 
-
-        - The card will remain flipped either if the player is choosing the two cards to compare against or remain flipped if they match
-
-        - The Gameboard had to run the checks and balances of the games;
-
-            -If the second choice wasn't a match reset turn and add to move counter
-
-            - if both of the cards’ id (from database) matched turn matchFound to true
-
-            - if the cards matched add to the current score, and add to move counter
-
-            - lastly check if the score was equal to the cards.length divided by two.
-
-            - Temporarily disable both cards while the id check was happening. If not equal reactivate and flip the cards. If ids did match remain flipped face up and permanently disable the cards.
-
-    -Child 3: Search Area
-
-        - SearchArea has two children the search and input bar (Search) and the ResultWindow.
-
-        - The Search is a normal search operator and has an auto fill feature that will run if user types case sensitive.
-
-        - The result window will generate the search results allowing the user to view the card’s information.
+## License
+--- 
+Images and creature are from the Wizards of Coast DnD Beyond

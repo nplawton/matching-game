@@ -4,17 +4,35 @@
 const { Pool } = require('pg');
 const ex = require ('express');
 const cors = require('cors');
-const body = require('body-parser');
 
 //port that express will listean to for requests
 const port = process.env.port || 8000;
 
 //using dependcies
 const app = ex();
-app.use(body.json());
+app.use(ex.json());
 app.use(cors());
 
-const pool = require('./dbConn');
+const pool = new Pool({
+    user: 'postgres',
+    host: '127.0.0.1',
+    database: 'match',
+    password: 'match',
+    port: 5432,
+});
+
+//const pool = require('./dbConn');
+
+//Server Test
+app.get('/', async (req, res) => {
+    try {
+      const { rows } = await pool.query('SELECT NOW()');
+      res.send(`Hello, world! PostgreSQL says it's ${rows[0].now}.`);
+    } catch (err) {
+      console.error(err);
+      res.send('Error while connecting to PostgreSQL');
+    }
+});
 
 app.get('/moncard', (req, res, next) => {
     pool.query('SELECT * FROM moncard', (err, results) => {

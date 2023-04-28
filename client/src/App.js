@@ -22,7 +22,7 @@ function App(){
   }, [])
 
   const getData = async () => {
-    const response = await fetch('https://react-mvp-1ll9.onrender.com/moncard')
+    const response = await fetch('http://localhost:8000/moncard')
       .then(response => response.json()
     )
     setBackendData(response);

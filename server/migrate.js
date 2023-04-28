@@ -1,6 +1,14 @@
 const { Pool } = require('pg');
 
-const pool = require('./dbConn');
+//const pool = require('./dbConn');
+
+const pool = new Pool({
+    user: 'postgres',
+    host: '127.0.0.1',
+    database: 'match',
+    password: 'match',
+    port: 5432,
+});
 
 pool.query(`DROP TABLE IF EXISTS moncard`)
     .then((data) => {

@@ -1,6 +1,14 @@
 const { Pool } = require('pg');
 
-const pool = require('./dbConn');
+//const pool = require('./dbConn');
+
+const pool = new Pool({
+    user: 'postgres',
+    host: '127.0.0.1',
+    database: 'match',
+    password: 'match',
+    port: 5432,
+});
 
 pool.query(`INSERT INTO moncard (mon_name, mon_img, descrip, matchFound, flipped) VALUES
     ('Aarakocra', 'https://www.dndbeyond.com/avatars/thumbnails/7/622/420/618/636286750209394240.png', 'Aarakocra are bird-like humanoids with feathers and a beak. Their hands have three fingers and a thumb, and they also have a pair of feathered wings. Aarakocra have lean legs ending in talons. Aarakocra look like large birds from below, until they land. Aarakocra have advantage on saving throws against lightning and thunder damage, as well as against spells or powers that manipulate air, such as gust of wind, wind wall, or an air elementals whirlwind power. Aarakocra have lean, lightweight bodies, typically 80 to 100 pounds. Their skeletons are hollow and fragile. Their wings anchor in a bony chest plate that provides some slight natural protection.', 'false', 'false'),
